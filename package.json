@@ -1,0 +1,58 @@
+{
+  "name": "react-analytics",
+  "version": "0.0.0",
+  "description": "React Analytics",
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "NODE_ENV=production babel src --out-dir lib --copy-files",
+    "preview": "babel preview/src --out-dir preview/lib --copy-files",
+    "start": "npm run build -- --watch & npm run preview -- --watch & gulp & node ./preview/server.js",
+    "test": "npm run build && mocha \"test/**/*.js\"",
+    "lint": "eslint --ext .es,.js --ignore-path .eslintignore --format codeframe ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OrnamentStudio/react-analytics.git"
+  },
+  "keywords": [
+    "react",
+    "analytics",
+    "google"
+  ],
+  "author": "Abylay Keldibek <atomio.ak@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OrnamentStudio/react-analytics/issues"
+  },
+  "homepage": "https://github.com/OrnamentStudio/react-analytics#readme",
+  "engines": {
+    "node": "^8.x.x"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "6.23.0",
+    "babel-preset-env": "1.7.0",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-stage-3": "6.24.1",
+    "browserify": "16.2.2",
+    "chai": "^4.1.2",
+    "connect-livereload": "0.6.0",
+    "eslint": "^5.1.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0",
+    "express": "4.16.3",
+    "gulp": "^4.0.0",
+    "livereload": "0.7.0",
+    "mocha": "^5.2.0",
+    "prop-types": "^15.6.2",
+    "pump": "3.0.0",
+    "react": "16.4.1",
+    "react-dom": "16.4.1"
+  },
+  "peerDependencies": {
+    "react": "^16.4.x",
+    "prop-types": "^15.6.x"
+  }
+}
