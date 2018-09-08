@@ -5,7 +5,7 @@ React component to work with Google analytics
 ## Install
 
 ```
-npm install react-node-polyglot
+npm install ornament-react-analytics
 ```
 
 ## Example Usage
