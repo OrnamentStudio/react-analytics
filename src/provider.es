@@ -29,7 +29,7 @@ class AnalyticsProvider extends PureComponent {
 
   stopCheck() {
     if (!this._checkTimer) return;
-    clearTimeout();
+    clearTimeout(this._checkTimer);
     this._checkTimer = null;
   }
 
