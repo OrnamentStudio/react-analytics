@@ -1,6 +1,6 @@
 {
   "name": "ornament-react-analytics",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "React Analytics",
   "scripts": {
     "prepublishOnly": "npm run build",
