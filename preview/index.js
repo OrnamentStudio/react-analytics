@@ -11,22 +11,22 @@ const { createElement: e } = React;
 global.dataLayer = global.dataLayer || [];
 
 const Content = () => {
-  const createButTrack = (text, track) => (
+  const createTrackButton = (text, track) => (
     e('button', { onClick: () => track('event', 'test event') }, text)
   );
 
-  const butTrackHOC = e(withTrack(props => createButTrack('track HOC', props.track)));
-  const butTrackHook = createButTrack('track hook', useTrack());
+  const trackButtonHOC = e(withTrack(props => createTrackButton('track HOC', props.track)));
+  const trackButtonHook = createTrackButton('track hook', useTrack());
 
-  return e('div', null, 'Track: ', butTrackHOC, butTrackHook);
+  return e('div', null, 'Track: ', trackButtonHOC, trackButtonHook);
 };
 
 const App = () => {
   const [location, setLocation] = useState('/');
   const updateLocation = () => setLocation(prevLocation => `${prevLocation}route/`);
-  const butLocation = e('button', { onClick: updateLocation }, 'update location');
+  const buttonLocation = e('button', { onClick: updateLocation }, 'update location');
 
-  return e(Provider, { id: 'UA-63730821-4', location, dataLayer: global.dataLayer }, butLocation, e(Content));
+  return e(Provider, { id: 'UA-63730821-4', location, dataLayer: global.dataLayer }, buttonLocation, e(Content));
 };
 
 render(e(App), global.document.getElementById('root'));
