@@ -4,7 +4,7 @@ const React = require('react');
 const PropTypes = require('prop-types');
 const { Provider } = require('./context');
 
-const { PureComponent } = React;
+const { PureComponent, createElement: e } = React;
 
 
 class AnalyticsProvider extends PureComponent {
@@ -42,7 +42,7 @@ class AnalyticsProvider extends PureComponent {
       ...rest
     } = this.props;
 
-    return React.createElement(Provider, { ...rest, value: this.track });
+    return e(Provider, { ...rest, value: this.track });
   }
 }
 
