@@ -1,9 +1,5 @@
-!lib/
-preview/
-src/
 .babelrc
 .eslintignore
 .eslintrc
 .gitignore
 .npmignore
-gulpfile.js

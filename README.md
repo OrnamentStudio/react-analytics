@@ -1,4 +1,4 @@
-# React Google Analytics
+# React Google Analytics [![Build Status](https://travis-ci.org/OrnamentStudio/react-analytics.svg?branch=master)](https://travis-ci.org/OrnamentStudio/react-analytics)
 React component to work with Google analytics
 
 
@@ -8,31 +8,40 @@ React component to work with Google analytics
 npm install ornament-react-analytics
 ```
 
-## Example Usage
+This module targets Node.js 8 or later and the latest version of Chrome, Firefox, and Safari. If you want support for older browsers use [Babel compiler](https://babeljs.io/).
 
-You need to connect google analytics module by yourself. For example you can simply include script tag
+## Usage
+
+You need to connect google analytics script by yourself. For example you can simply include script tag
 
 ```html
-<script src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX" defer></script>
+<script src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX"></script>
 ```
 
-And in your app
+React application
 
 ```jsx
-import Provider from 'react-node-polyglot/lib/provider';
-import withTrack from 'react-node-polyglot/lib/with_track';
+const { Provider, withTrack, useTrack } = require('ornament-react-analytics');
 
+
+const TrackButtonHOC = withTrack((props) => (
+  <button onClick={() => props.track()}>Track</button>
+));
+
+const TrackButtonHook = () => {
+  const track = useTrack();
+  return <button onClick={() => track()}>Track</button>;
+};
 
 const App = () => (
-  <Provider id="UA-XXXXX" location={currentPageUrl}>
-    {withTrack(({ track }) => {
-      // .. track events
-    })}
+  // Every time location property is changed, pageview event is sent
+  <Provider id="UA-XXXXX" location={currentPageUrl} dataLayer={window.dataLayer}>
+    <TrackButtonHOC />
+    <TrackButtonHook />
   </Provider>
 );
 ```
 
-Every time location property is changed, pageview event is sent to google server
 
 ## License
 
