@@ -1,4 +1,4 @@
-# React Google Analytics
+# React Google Analytics [![Build Status](https://travis-ci.org/OrnamentStudio/react-analytics.svg?branch=master)](https://travis-ci.org/OrnamentStudio/react-analytics)
 React component to work with Google analytics
 
 
@@ -8,19 +8,20 @@ React component to work with Google analytics
 npm install ornament-react-analytics
 ```
 
-## Example Usage
+This module targets Node.js 8 or later and the latest version of Chrome, Firefox, and Safari. If you want support older browsers use [Babel compiler](https://babeljs.io/).
+
+## Usage
 
 You need to connect google analytics module by yourself. For example you can simply include script tag
 
 ```html
-<script src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX" defer></script>
+<script src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX"></script>
 ```
 
-And in your app
+React application
 
 ```jsx
-import Provider from 'react-node-polyglot/lib/provider';
-import withTrack from 'react-node-polyglot/lib/with_track';
+const { Provider, withTrack, track } = require('ornament-react-analytics');
 
 
 const App = () => (
@@ -28,6 +29,7 @@ const App = () => (
     {withTrack(({ track }) => {
       // .. track events
     })}
+    <button onClick={() => { track(); }}>Track</button>
   </Provider>
 );
 ```
