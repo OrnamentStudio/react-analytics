@@ -1,12 +1,5 @@
-const Context = require('./context');
-const Provider = require('./provider');
-const withTrack = require('./with_track');
-const useTrack = require('./use_track');
+exports.Context = require('./context');
+exports.Provider = require('./provider');
 
-
-module.exports = {
-  Context,
-  Provider,
-  withTrack,
-  useTrack,
-};
+exports.withTrack = require('./with_track');
+exports.useTrack = require('./use_track');
