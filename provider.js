@@ -1,4 +1,4 @@
-/* eslint prefer-rest-params: 0, react/no-unused-state: 0, react/forbid-prop-types: 0 */
+/* eslint prefer-rest-params: 0 */
 
 const React = require('react');
 const PropTypes = require('prop-types');

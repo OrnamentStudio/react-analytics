@@ -15,7 +15,7 @@ const Content = () => {
     e('button', { onClick: () => track('event', 'test event') }, text)
   );
 
-  const trackButtonHOC = e(withTrack(props => createTrackButton('track HOC', props.track)));
+  const trackButtonHOC = e(withTrack((props) => createTrackButton('track HOC', props.track)));
   const trackButtonHook = createTrackButton('track hook', useTrack());
 
   return e('div', null, 'Track: ', trackButtonHOC, trackButtonHook);
@@ -23,7 +23,7 @@ const Content = () => {
 
 const App = () => {
   const [location, setLocation] = useState('/');
-  const updateLocation = () => setLocation(prevLocation => `${prevLocation}route/`);
+  const updateLocation = () => setLocation((prevLocation) => `${prevLocation}route/`);
   const buttonLocation = e('button', { onClick: updateLocation }, 'update location');
 
   return e(Provider, { id: 'UA-63730821-4', location, dataLayer: global.dataLayer }, buttonLocation, e(Content));
